@@ -59,7 +59,7 @@ const TodoList = (state : any) => {
   const dispatch = useContext(Context)as any
   return (
     <div style={{
-      marginTop: '10px',
+      marginTop: '10px'
     }}>
       <ol>
         {map(state.items, (item : Todo) => (
@@ -100,23 +100,23 @@ const reducer = (state : any, action : TodoAction) => {
 
 const AddTodo = () => {
   const dispatch = useContext(Context)as any;
-  const [task, setTask] = useState('');
-  const buttonAdd = useRef<HTMLButtonElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [task,
+    setTask] = useState('');
+  const buttonAdd = useRef < HTMLButtonElement > (null);
+  const inputRef = useRef < HTMLInputElement > (null);
   useEffect(() => {
     if (buttonAdd && buttonAdd.current) {
       if (task.length === 0) {
-      
-      buttonAdd.current.disabled = true;
-      buttonAdd.current.style.background = '#cccccc';
+
+        buttonAdd.current.disabled = true;
+        buttonAdd.current.style.background = '#cccccc';
       } else {
         buttonAdd.current.disabled = false;
-      buttonAdd.current.style.background = '#0099cc';
-        
+        buttonAdd.current.style.background = '#0099cc';
+
       }
     }
-  },[task])
-
+  }, [task])
 
   const addTask = () => {
     dispatch({type: 'add', payload: task})
@@ -137,13 +137,15 @@ const AddTodo = () => {
       <label style={{
         marginLeft: '5px'
       }} htmlFor='newTodo'>Need to do:</label>
-      <input ref={inputRef}
+      <input
+        ref={inputRef}
         style={{
         marginLeft: '5px'
       }}
         onChange={(e) => setTask(e.target.value)}
         name='newTodo'/>
-      <button ref={buttonAdd}
+      <button
+        ref={buttonAdd}
         style={{
         marginLeft: '5px'
       }}
